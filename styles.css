@@ -1,0 +1,285 @@
+:root {
+    /* Spacing scale */
+    --space-xs: 0.5rem;    /* 8px */
+    --space-sm: 1rem;      /* 16px */
+    --space-md: 1.5rem;    /* 24px */
+    --space-lg: 2rem;      /* 32px */
+    --space-xl: 2.5rem;    /* 40px */
+    --space-2xl: 3rem;     /* 48px */
+    --space-3xl: 4rem;     /* 64px */
+    
+    /* Typography scale */
+    --text-xs: clamp(0.75rem, 0.5vw + 0.7rem, 0.875rem);
+    --text-sm: clamp(0.875rem, 0.7vw + 0.8rem, 1rem);
+    --text-base: clamp(1rem, 1vw + 0.9rem, 1.25rem);
+    --text-lg: clamp(1.125rem, 1.5vw + 0.9rem, 1.5rem);
+    --text-xl: clamp(1.25rem, 2vw + 1rem, 2rem);
+    --text-2xl: clamp(1.5rem, 3vw + 1rem, 3rem);
+    --text-3xl: clamp(2rem, 4vw + 1.5rem, 4rem);
+    
+    /* Default color scheme */
+    --color-bg: #000;
+    --color-text: #fff;
+    --color-primary: #ff0000;
+    --color-secondary: #ffff00;
+    --color-accent: #00ff00;
+    
+    /* Color scheme variations */
+    --scheme-1-primary: #00ffff;
+    --scheme-1-secondary: #ff00ff;
+    --scheme-1-accent: #ffff00;
+    --scheme-1-interest-bg: #fff;
+    --scheme-1-button-bg: #000;
+    
+    --scheme-2-primary: #000;
+    --scheme-2-secondary: #ff0000;
+    --scheme-2-accent: #fff;
+    --scheme-2-interest-bg: #ffff00;
+    --scheme-2-button-bg: #00ff00;
+    
+    --scheme-3-primary: #ffff00;
+    --scheme-3-secondary: #00ff00;
+    --scheme-3-accent: #ff00ff;
+    --scheme-3-interest-bg: #ff0000;
+    --scheme-3-button-bg: #000;
+    
+    --scheme-4-primary: #ff00ff;
+    --scheme-4-secondary: #000;
+    --scheme-4-accent: #00ffff;
+    --scheme-4-interest-bg: #fff;
+    --scheme-4-button-bg: #ff0000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    font-display: swap;
+    background: var(--color-bg);
+    color: var(--color-text);
+    overflow-x: hidden;
+    line-height: 1.4;
+}
+
+/* Hidden radio buttons for CSS-only color switching */
+.color-switcher {
+    display: none;
+}
+
+/* Color scheme transitions */
+header, .interests-section, .interest-item, .color-button {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Color scheme 1 */
+#scheme1:checked ~ .container header {
+    background: var(--scheme-1-primary);
+}
+#scheme1:checked ~ .container .interests-section {
+    background: var(--scheme-1-secondary);
+}
+#scheme1:checked ~ .container .interest-item {
+    background: var(--scheme-1-interest-bg);
+    color: var(--color-bg);
+}
+#scheme1:checked ~ .container .color-button {
+    background: var(--scheme-1-button-bg);
+    color: var(--color-text);
+}
+
+/* Color scheme 2 */
+#scheme2:checked ~ .container header {
+    background: var(--scheme-2-primary);
+}
+#scheme2:checked ~ .container .interests-section {
+    background: var(--scheme-2-secondary);
+}
+#scheme2:checked ~ .container .interest-item {
+    background: var(--scheme-2-interest-bg);
+    color: var(--color-bg);
+}
+#scheme2:checked ~ .container .color-button {
+    background: var(--scheme-2-button-bg);
+    color: var(--color-text);
+}
+
+/* Color scheme 3 */
+#scheme3:checked ~ .container header {
+    background: var(--scheme-3-primary);
+}
+#scheme3:checked ~ .container .interests-section {
+    background: var(--scheme-3-secondary);
+}
+#scheme3:checked ~ .container .interest-item {
+    background: var(--scheme-3-interest-bg);
+    color: var(--color-text);
+}
+#scheme3:checked ~ .container .color-button {
+    background: var(--scheme-3-button-bg);
+    color: var(--color-text);
+}
+
+/* Color scheme 4 */
+#scheme4:checked ~ .container header {
+    background: var(--scheme-4-primary);
+}
+#scheme4:checked ~ .container .interests-section {
+    background: var(--scheme-4-secondary);
+}
+#scheme4:checked ~ .container .interest-item {
+    background: var(--scheme-4-interest-bg);
+    color: var(--color-bg);
+}
+#scheme4:checked ~ .container .color-button {
+    background: var(--scheme-4-button-bg);
+    color: var(--color-text);
+}
+
+header {
+    background: var(--color-primary);
+    color: var(--color-bg);
+    padding-block: var(--space-xl);
+    padding-inline: var(--space-lg);
+    text-align: center;
+    border-block-end: var(--space-lg) solid var(--color-text);
+}
+
+h1 {
+    font-size: var(--text-3xl);
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-shadow: 5px 5px 0px var(--color-text);
+}
+
+.subtitle {
+    font-size: var(--text-lg);
+    font-weight: bold;
+    margin-block-start: var(--space-lg);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.container {
+    max-inline-size: 75rem;
+    margin-inline: auto;
+    padding-inline: var(--space-md);
+}
+
+.interests-section {
+    background: var(--color-secondary);
+    color: var(--color-bg);
+    padding-block: var(--space-3xl);
+    padding-inline: var(--space-xl);
+    border-block: var(--space-lg) solid var(--color-bg);
+}
+
+h2 {
+    font-size: var(--text-2xl);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-block-end: var(--space-xl);
+    text-shadow: 3px 3px 0px var(--color-primary);
+}
+
+.interests-text {
+    font-size: var(--text-lg);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-block-end: var(--space-xl);
+}
+
+.interests-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+    container-type: inline-size;
+}
+
+.interest-item {
+    background: var(--color-bg);
+    color: var(--color-text);
+    padding-block: var(--space-xl);
+    padding-inline: var(--space-lg);
+    text-align: center;
+    font-weight: 900;
+    font-size: var(--text-base);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 5px solid var(--color-text);
+    cursor: pointer;
+}
+
+.interest-item:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.subnav {
+    background: var(--color-bg);
+    padding-block: var(--space-sm);
+    text-align: center;
+    border-block-end: 3px solid var(--color-text);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.color-button {
+    background: var(--color-primary);
+    color: var(--color-text);
+    border: 3px solid var(--color-text);
+    padding-block: var(--space-xs);
+    padding-inline: var(--space-sm);
+    font-size: var(--text-sm);
+    font-weight: 900;
+    font-family: 'Courier New', monospace;
+    font-display: swap;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+}
+
+.color-button:hover {
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 3px solid var(--color-text);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+}
+
+.color-button:active {
+    background: var(--color-text);
+    color: var(--color-bg);
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(255, 0, 0, 0.2);
+}
+
+.color-button:focus {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+@container (max-width: 500px) {
+    .interests-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 50rem) {
+    .container {
+        padding-inline: var(--space-sm);
+    }
+    
+    .interests-section {
+        padding-inline: var(--space-lg);
+    }
+}
