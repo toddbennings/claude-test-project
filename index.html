@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODD BENNINGS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #ff0000;
+            color: #000;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 20px solid #fff;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            text-shadow: 5px 5px 0px #fff;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .interests-section {
+            background: #ffff00;
+            color: #000;
+            padding: 60px 40px;
+            border-top: 20px solid #000;
+            border-bottom: 20px solid #000;
+        }
+
+        h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 40px;
+            text-shadow: 3px 3px 0px #ff0000;
+        }
+
+        .interests-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+        .interests-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+
+        .interest-item {
+            background: #000;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 5px solid #fff;
+            cursor: pointer;
+        }
+
+        .interest-item:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .interactive-section {
+            background: #00ff00;
+            color: #000;
+            padding: 60px 40px;
+            text-align: center;
+            border-top: 20px solid #000;
+        }
+
+        .interactive-section h2 {
+            text-shadow: 3px 3px 0px #000;
+        }
+
+        .interactive-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+        .color-button {
+            background: #ff0000;
+            color: #fff;
+            border: 8px solid #000;
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            font-weight: 900;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            margin: 15px;
+            transition: none;
+        }
+
+        .color-button:hover {
+            background: #000;
+            color: #fff;
+            border: 8px solid #fff;
+        }
+
+        .color-button:active {
+            background: #fff;
+            color: #000;
+        }
+
+        @media (max-width: 800px) {
+            h1 {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            
+            .interests-list {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Todd Bennings</h1>
+            <p class="subtitle">PERSONAL WEBPAGE</p>
+        </header>
+
+        <section class="interests-section">
+            <h2>INTERESTS</h2>
+            <p class="interests-text">THINGS I DO:</p>
+            <div class="interests-list">
+                <div class="interest-item">WEB DEV</div>
+                <div class="interest-item">TECH</div>
+                <div class="interest-item">DESIGN</div>
+                <div class="interest-item">PHOTO</div>
+                <div class="interest-item">TRAVEL</div>
+                <div class="interest-item">MUSIC</div>
+            </div>
+        </section>
+
+        <section class="interactive-section">
+            <h2>INTERACT</h2>
+            <p class="interactive-text">CLICK TO CHANGE COLORS</p>
+            <button class="color-button" onclick="changeColors()">CHANGE</button>
+            <button class="color-button" onclick="resetColors()">RESET</button>
+        </section>
+    </div>
+
+    <script>
+        const brutalistSchemes = [
+            {
+                header: '#ff0000',
+                interests: '#ffff00',
+                interactive: '#00ff00',
+                interestBg: '#000',
+                buttonBg: '#ff0000'
+            },
+            {
+                header: '#00ffff',
+                interests: '#ff00ff',
+                interactive: '#ffff00',
+                interestBg: '#fff',
+                buttonBg: '#000'
+            },
+            {
+                header: '#000',
+                interests: '#ff0000',
+                interactive: '#fff',
+                interestBg: '#ffff00',
+                buttonBg: '#00ff00'
+            },
+            {
+                header: '#ffff00',
+                interests: '#00ff00',
+                interactive: '#ff00ff',
+                interestBg: '#ff0000',
+                buttonBg: '#000'
+            },
+            {
+                header: '#ff00ff',
+                interests: '#000',
+                interactive: '#00ffff',
+                interestBg: '#fff',
+                buttonBg: '#ff0000'
+            }
+        ];
+
+        const originalScheme = {
+            header: '#ff0000',
+            interests: '#ffff00',
+            interactive: '#00ff00',
+            interestBg: '#000',
+            buttonBg: '#ff0000'
+        };
+
+        let currentSchemeIndex = 0;
+
+        function changeColors() {
+            currentSchemeIndex = (currentSchemeIndex + 1) % brutalistSchemes.length;
+            const scheme = brutalistSchemes[currentSchemeIndex];
+            
+            document.querySelector('header').style.backgroundColor = scheme.header;
+            document.querySelector('.interests-section').style.backgroundColor = scheme.interests;
+            document.querySelector('.interactive-section').style.backgroundColor = scheme.interactive;
+            
+            const interestItems = document.querySelectorAll('.interest-item');
+            interestItems.forEach(item => {
+                item.style.backgroundColor = scheme.interestBg;
+                item.style.color = scheme.interestBg === '#000' ? '#fff' : '#000';
+            });
+
+            const buttons = document.querySelectorAll('.color-button');
+            buttons.forEach(button => {
+                button.style.backgroundColor = scheme.buttonBg;
+                button.style.color = scheme.buttonBg === '#000' ? '#fff' : scheme.buttonBg === '#fff' ? '#000' : '#fff';
+            });
+        }
+
+        function resetColors() {
+            document.querySelector('header').style.backgroundColor = originalScheme.header;
+            document.querySelector('.interests-section').style.backgroundColor = originalScheme.interests;
+            document.querySelector('.interactive-section').style.backgroundColor = originalScheme.interactive;
+            
+            const interestItems = document.querySelectorAll('.interest-item');
+            interestItems.forEach(item => {
+                item.style.backgroundColor = originalScheme.interestBg;
+                item.style.color = '#fff';
+            });
+
+            const buttons = document.querySelectorAll('.color-button');
+            buttons.forEach(button => {
+                button.style.backgroundColor = originalScheme.buttonBg;
+                button.style.color = '#fff';
+            });
+
+            currentSchemeIndex = 0;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('BRUTALIST WEBPAGE LOADED');
+        });
+    </script>
+</body>
+</html>
